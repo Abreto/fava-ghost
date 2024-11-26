@@ -11,17 +11,11 @@
 
 # Beancount 项目准备
 
-fava-ghost 并不强制用户使用特定的 fava / beancount 版本，所以用户需要在自己的项目中指定 fava / beancount 版本。fava-ghost 使用 `pip install -e .` 来安装 fava / beancount，所以你需要在你的项目中添加 `setup.py` 文件，内容如下：
+fava-ghost 并不强制用户使用特定的 fava / beancount 版本，所以用户需要在自己的项目中指定 fava / beancount 版本。fava-ghost 使用 `pip install -r requirements.txt` 来安装 fava / beancount，所以你需要在你的项目中添加 `requirements.txt` 文件，示例内容如下：
 
-```python
-from setuptools import setup
-
-setup(
-    install_requires=[
-        'fava==1.26.2',
-        'beancount==2.3.6',
-    ],
-)
+```text
+fava==1.26.2
+beancount==2.3.6
 ```
 
 # 使用
