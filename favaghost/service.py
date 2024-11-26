@@ -193,7 +193,12 @@ def main():
     # 添加参数
     parser.add_argument("--repo-path", required=True, help="本地克隆仓库的路径")
     parser.add_argument("--repo-url", required=True, help="仓库的远程URL")
-    parser.add_argument("--repo-credentials", required=True, help="访问远程仓库的凭证")
+    parser.add_argument(
+        "--repo-credentials",
+        required=False,
+        default=os.environ.get("FAVA_GHOST_REPO_CREDENTIALS"),
+        help="访问远程仓库的凭证，建议通过环境变量 FAVA_GHOST_REPO_CREDENTIALS 设置",
+    )
     parser.add_argument("--fava-command", required=True, help="执行 fava 的命令")
     parser.add_argument("--init-command", required=True, help="初始化项目的命令")
 
@@ -206,7 +211,9 @@ def main():
     fava_command = args.fava_command
     init_command = args.init_command
 
-    daemon = DaemonProcess(repo_url, repo_credentials, repo_path, fava_command, init_command)
+    daemon = DaemonProcess(
+        repo_url, repo_credentials, repo_path, fava_command, init_command
+    )
     daemon.start()
 
 
