@@ -29,7 +29,8 @@ pip install fava-ghost
 fava-ghost 需要有读写仓库权限的 Github Credentials 来同步账本文件。你可以在 [这里](https://github.com/settings/tokens?type=beta) 申请一个 Github Fine-grained personal access token。然后启动 fava-ghost:
 
 ```bash
-fava-ghost --repo-url https://github.com/REPO --repo-credentials GITHUB_TOKEN --repo-path PATH_TO_REPO
+export FAVA_GHOST_REPO_CREDENTIALS="GITHUB_TOKEN"
+fava-ghost --repo-url https://github.com/REPO --repo-path PATH_TO_REPO
 ```
 
 其中 PATH_TO_REPO 是你的账本仓库的本地路径，比如 `~/Documents/Beancount`。
