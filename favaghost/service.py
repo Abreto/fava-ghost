@@ -2,6 +2,7 @@
 
 import os
 import re
+import sys
 import subprocess
 import time
 import multiprocessing
@@ -230,6 +231,19 @@ def main():
     repo_credentials = args.repo_credentials
     fava_command = args.fava_command
     init_command = args.init_command
+
+    if not repo_url:
+        print(
+            "仓库 URL 不能为空。请通过 --repo-url 参数或环境变量 FAVA_GHOST_REPO_URL 设置",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    if not repo_credentials:
+        print(
+            "仓库凭证不能为空。请通过环境变量 FAVA_GHOST_REPO_CREDENTIALS 设置",
+            file=sys.stderr,
+        )
+        sys.exit(1)
 
     daemon = DaemonProcess(
         repo_url, repo_credentials, repo_path, fava_command, init_command

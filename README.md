@@ -52,10 +52,10 @@ fava-ghost --repo-url https://github.com/REPO --repo-path PATH_TO_REPO
 
 # docker
 
-fava-ghost 也可以通过 docker 运行。镜像是 `e7h4n/fava-ghost`。你可以通过如下命令运行：
+fava-ghost 也可以通过 docker 运行。镜像是 `abreto/fava-ghost`。你可以通过如下命令运行：
 
 ```bash
-docker run e7h4n/fava-ghost -d -p 5000:5000 --repo-url REPO_URL --repo-credentials GITHUB_TOKEN
+docker run abreto/fava-ghost -d -p 5000:5000 --repo-url REPO_URL --repo-credentials GITHUB_TOKEN
 ```
 
 通过 docker，你可以在任意一个环境下快速启动 fava 服务来托管你的 beancount 账本，无需解决环境问题。
