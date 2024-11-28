@@ -11,17 +11,11 @@
 
 # Beancount 项目准备
 
-fava-ghost 并不强制用户使用特定的 fava / beancount 版本，所以用户需要在自己的项目中指定 fava / beancount 版本。fava-ghost 使用 `pip install -e .` 来安装 fava / beancount，所以你需要在你的项目中添加 `setup.py` 文件，内容如下：
+fava-ghost 并不强制用户使用特定的 fava / beancount 版本，所以用户需要在自己的项目中指定 fava / beancount 版本。fava-ghost 使用 `pip install -r requirements.txt` 来安装 fava / beancount，所以你需要在你的项目中添加 `requirements.txt` 文件，示例内容如下：
 
-```python
-from setuptools import setup
-
-setup(
-    install_requires=[
-        'fava==1.26.2',
-        'beancount==2.3.6',
-    ],
-)
+```text
+fava==1.26.2
+beancount==2.3.6
 ```
 
 # 使用
@@ -35,10 +29,11 @@ pip install fava-ghost
 fava-ghost 需要有读写仓库权限的 Github Credentials 来同步账本文件。你可以在 [这里](https://github.com/settings/tokens?type=beta) 申请一个 Github Fine-grained personal access token。然后启动 fava-ghost:
 
 ```bash
-fava-ghost --repo-url https://github.com/REPO --repo-credentials GITHUB_TOKEN --repo-path PATH_TO_REPO
+export FAVA_GHOST_REPO_CREDENTIALS="GITHUB_TOKEN"
+fava-ghost --repo-url https://github.com/REPO --repo-path PATH_TO_REPO
 ```
 
-其中 PATH_TO_REPO 是你的账本仓库的本地路径，比如 `~/Documents/Beancount`。
+其中 PATH_TO_REPO 是你的账本仓库的本地路径，比如 `~/Documents/Beancount`，默认值为 `~/beancount`。
 
 就可以开始自动同步账本文件了。一旦启动，fava-ghost 会自动开始做如下事情:
 
@@ -57,10 +52,10 @@ fava-ghost --repo-url https://github.com/REPO --repo-credentials GITHUB_TOKEN --
 
 # docker
 
-fava-ghost 也可以通过 docker 运行。镜像是 `e7h4n/fava-ghost`。你可以通过如下命令运行：
+fava-ghost 也可以通过 docker 运行。镜像是 `abreto/fava-ghost`。你可以通过如下命令运行：
 
 ```bash
-docker run e7h4n/fava-ghost -d -p 5000:5000 --repo-url REPO_URL --repo-credentials GITHUB_TOKEN
+docker run abreto/fava-ghost -d -p 5000:5000 --repo-url REPO_URL --repo-credentials GITHUB_TOKEN
 ```
 
 通过 docker，你可以在任意一个环境下快速启动 fava 服务来托管你的 beancount 账本，无需解决环境问题。

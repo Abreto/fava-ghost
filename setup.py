@@ -28,9 +28,9 @@ setup(
     description="A daemon for fava server and git repo sync",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/e7h4n/fava-ghost",
-    author="e7h4n",
-    author_email="ethan.pw@icloud.com",
+    url="https://github.com/Abreto/fava-ghost",
+    author="e7h4n, abreto",
+    author_email="ethan.pw@icloud.com, hi@abreto.email",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Financial and Insurance Industry",
@@ -52,6 +52,6 @@ setup(
     },
     project_urls={
         "Bug Reports": "https://github.com/e7h4n/fava-ghost/issues",
-        "Source": "https://github.com/e7h4n/fava-ghost/",
+        "Source": "https://github.com/Abreto/fava-ghost/",
     },
 )
