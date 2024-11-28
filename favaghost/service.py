@@ -197,7 +197,12 @@ def main():
         default=os.path.expanduser("~/beancount"),
         help="本地克隆仓库的路径",
     )
-    parser.add_argument("--repo-url", required=True, help="仓库的远程URL")
+    parser.add_argument(
+        "--repo-url",
+        required=False,
+        default=os.environ.get("FAVA_GHOST_REPO_URL"),
+        help="仓库的远程URL，也可以通过环境变量 FAVA_GHOST_REPO_URL 设置",
+    )
     parser.add_argument(
         "--repo-credentials",
         required=False,

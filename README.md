@@ -33,7 +33,7 @@ export FAVA_GHOST_REPO_CREDENTIALS="GITHUB_TOKEN"
 fava-ghost --repo-url https://github.com/REPO --repo-path PATH_TO_REPO
 ```
 
-其中 PATH_TO_REPO 是你的账本仓库的本地路径，比如 `~/Documents/Beancount`。
+其中 PATH_TO_REPO 是你的账本仓库的本地路径，比如 `~/Documents/Beancount`，默认值为 `~/beancount`。
 
 就可以开始自动同步账本文件了。一旦启动，fava-ghost 会自动开始做如下事情:
 
